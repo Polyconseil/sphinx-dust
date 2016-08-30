@@ -1,0 +1,6 @@
+graft dust
+global-exclude .py[cod] __pycache__ .so
+global-exclude [._]*.s[a-w][a-z] [._]s[a-w][a-z]
+
+include README.rst
+exclude LICENSE.txt CHANGES.rst requirements*.txt
