@@ -4,6 +4,8 @@ Changelog for dust
 1.1 (unreleased)
 ----------------
 
+- Fix CSS class. The styling was fine with the default Sphinx theme,
+  but incorrect with ReadTheDocs theme.
 - Fix outdated document calculation
 
 

@@ -57,13 +57,16 @@ class ReviewerMetaDirective(rst.Directive):
             )
             node_list.append(warning)
 
+        options = self.options
+        options['class'] = ['note']
+
         written_strf = datetime.datetime.strftime(written_on, _("Written on %d %B %Y"))
         proofread_strf = datetime.datetime.strftime(proofread_on, _("proofread on %d %B %Y"))
         ad = make_admonition(
             review,
             self.name,
             [_("Review")],
-            self.options,
+            options,
             statemachine.StringList([', '.join([written_strf, proofread_strf])]),
             self.lineno,
             self.content_offset,
