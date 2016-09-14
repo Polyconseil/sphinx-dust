@@ -46,7 +46,7 @@ class ReviewerMetaDirective(rst.Directive):
 
         written_on = self.options['written-on']
         proofread_on = self.options['proofread-on']
-        delta = proofread_on - written_on
+        delta = datetime.datetime.now() - proofread_on
 
         node_list = []
         if delta.days > env.config.dust_days_limit and env.config.dust_emit_warnings:
