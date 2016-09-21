@@ -1,7 +1,7 @@
 Changelog for dust
 ==================
 
-1.1 (unreleased)
+1.1 (2016-09-21)
 ----------------
 
 - The package used to install under ``dust`` which could conflict with
