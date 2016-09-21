@@ -22,7 +22,7 @@ Then add it as an extension to your project's ``conf.py``:
 
     # conf.py
     extensions = [
-        'dust',
+        'sphinx_dust',
     ]
 
 Optionally, configure the value of ``dust_days_limit`` to your
