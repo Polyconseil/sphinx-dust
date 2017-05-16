@@ -1,10 +1,10 @@
 Changelog for dust
 ==================
 
-1.2 (unreleased)
+1.2 (2017-05-16)
 ----------------
 
-- Nothing changed yet.
+- Sphinx 1.6 compatibility.
 
 
 1.1 (2016-09-21)
