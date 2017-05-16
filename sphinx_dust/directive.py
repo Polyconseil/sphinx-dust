@@ -4,7 +4,11 @@ from docutils import nodes
 from docutils import statemachine
 from docutils.parsers import rst
 
-from sphinx.util.compat import make_admonition
+try:
+    from sphinx.util.compat import make_admonition
+except ImportError:  # FIXME: make_admonition was removed in Sphinx 1.6
+    from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
+
 from sphinx.locale import _
 
 
