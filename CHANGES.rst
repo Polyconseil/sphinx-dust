@@ -1,8 +1,8 @@
 Changelog for dust
 ==================
 
-1.3 (unreleased)
-----------------
+1.2.1 (2017-05-17)
+------------------
 
 - Stop using the deprecated 'make_admonition', use 'BaseAdmonition' instead
 
