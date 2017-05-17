@@ -3,11 +3,7 @@ import datetime
 from docutils import nodes
 from docutils import statemachine
 from docutils.parsers import rst
-
-try:
-    from sphinx.util.compat import make_admonition
-except ImportError:  # FIXME: make_admonition was removed in Sphinx 1.6
-    from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
 
 from sphinx.locale import _
 
@@ -61,24 +57,15 @@ class ReviewerMetaDirective(rst.Directive):
             )
             node_list.append(warning)
 
-        options = self.options
-        options['class'] = ['note']
-
         written_strf = datetime.datetime.strftime(written_on, _("Written on %d %B %Y"))
         proofread_strf = datetime.datetime.strftime(proofread_on, _("proofread on %d %B %Y"))
-        ad = make_admonition(
-            review,
-            self.name,
-            [_("Review")],
-            options,
-            statemachine.StringList([', '.join([written_strf, proofread_strf])]),
-            self.lineno,
-            self.content_offset,
-            self.block_text,
-            self.state,
-            self.state_machine,
-        )
-        node_list.append(ad[0])
+
+        content = statemachine.StringList([', '.join([written_strf, proofread_strf])])
+        review_node = review(content)
+        review_node += nodes.title(_("Review"), _("Review"))
+        self.state.nested_parse(content, self.content_offset, review_node)
+
+        node_list.append(review_node)
         return node_list
 
 
