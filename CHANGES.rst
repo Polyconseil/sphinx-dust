@@ -5,6 +5,7 @@ Changelog for dust
 ------------------
 
 - Add a new setting to choose the admonition node classes
+- Add several settings to control dust's HTML output
 
 
 1.2.1 (2017-05-17)
