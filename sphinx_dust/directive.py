@@ -61,7 +61,7 @@ class ReviewerMetaDirective(rst.Directive):
         proofread_strf = datetime.datetime.strftime(proofread_on, _("proofread on %d %B %Y"))
 
         content = statemachine.StringList([', '.join([written_strf, proofread_strf])])
-        review_node = review(content)
+        review_node = review(content, classes=env.config.dust_node_classes)
         review_node += nodes.title(_("Review"), _("Review"))
         self.state.nested_parse(content, self.content_offset, review_node)
 
@@ -74,6 +74,8 @@ def setup(app):
     app.add_config_value('dust_days_limit', 30, 'html')
     # Whether to emit warning when a doc needs proofreading
     app.add_config_value('dust_emit_warnings', True, 'html')
+    # Classes to apply to the output node
+    app.add_config_value('dust_node_classes', ['note'], 'html')
 
     app.add_node(review, html=(visit_review_node, depart_review_node))
     app.add_directive('reviewer-meta', ReviewerMetaDirective)
