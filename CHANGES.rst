@@ -4,7 +4,7 @@ Changelog for dust
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add several settings to control dust's HTML output
 
 
 1.2.1 (2017-05-17)
