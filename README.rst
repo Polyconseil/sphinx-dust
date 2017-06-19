@@ -25,22 +25,6 @@ Then add it as an extension to your project's ``conf.py``:
         'sphinx_dust',
     ]
 
-Optionally, configure the value of ``dust_days_limit`` to your
-convenience (defaults to 30):
-
-.. code-block:: python
-
-    # conf.py
-    dust_days_limit = 30
-
-If you only want to benefit from the generated note, configure the
-``dust_emit_warnings`` attribute (defaults to ``True``):
-
-.. code-block:: python
-
-    # conf.py
-    dust_emit_warnings = False
-
 
 Using dust
 ==========
@@ -90,3 +74,30 @@ make CI builds fail and be notified of outdated docs.
 
 The warning and note content are exported using sphinx.locale so you can translate
 them in your language if you see fit.
+
+
+Configuration
+=============
+
+Various parameters can be tweaked to your convenience. You can alter any of
+them in your project's ``conf.py`` file, they're simple Python variables.
+
+You can assign any value to these settings, however you should respect their
+typing, the extension could crash otherwise.
+
+Here's an exhaustive list of every parameter:
+
+- ``dust_days_limit`` (default: ``30``), the number of days a document can live
+  since its last reviewing without emitting warnings,
+- ``dust_emit_warnings`` (default: ``True``), controls whether the extension emits a
+  warning when a document needs reviewing,
+- ``dust_include_output`` (default: ``True``), controls whether to include an HTML
+  output in the monitored documents,
+- ``dust_output_format`` (default: ``"Written on {written_on}, proofread on {proofread_on}"``),
+  the content of the HTML output, needs to include two format variables:
+  ``written_on`` and ``proofread_on``, which will get replaced by the result of
+  ``strftime``-formatting ``written-on`` and ``proofread-on`` values,
+- ``dust_datetime_format`` (default: ``"%d %B %Y"``), the format datetimes
+  (``written-on`` and ``proofread-on`` values) take in HTML output; and,
+- ``dust_node_classes`` (default: ``['note']``), a list of Sphinx admonition
+  classes to apply to the node used to generate HTML.
