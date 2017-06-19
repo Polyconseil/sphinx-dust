@@ -1,7 +1,7 @@
 Changelog for dust
 ==================
 
-1.2.2 (unreleased)
+1.2.2 (2017-06-19)
 ------------------
 
 - Add a new setting to choose the admonition node classes
