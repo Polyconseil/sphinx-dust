@@ -49,7 +49,14 @@ class ReviewerMetaDirective(rst.Directive):
         delta = datetime.datetime.now() - proofread_on
 
         node_list = []
-        if delta.days > env.config.dust_days_limit and env.config.dust_emit_warnings:
+        if delta.days < 0:
+            # Don't raise using self.warning because we want to
+            # insert the admonition too
+            warning = self.state.reporter.warning(
+                _("This document should not have a proofread-on date in the future"),
+            )
+            node_list.append(warning)
+        elif delta.days > env.config.dust_days_limit and env.config.dust_emit_warnings:
             # Don't raise using self.warning because we want to
             # insert the admonition too
             warning = self.state.reporter.warning(
