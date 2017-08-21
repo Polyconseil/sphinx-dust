@@ -1,7 +1,7 @@
 Changelog for dust
 ==================
 
-1.2.3 (unreleased)
+1.2.3 (2017-08-21)
 ------------------
 
 - Emit a warning when providing a proofread-on value in the future
