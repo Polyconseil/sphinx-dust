@@ -4,7 +4,7 @@ Changelog for dust
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Emit a warning when providing a proofread-on value in the future
 
 
 1.2.2 (2017-06-19)
