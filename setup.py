@@ -10,7 +10,7 @@ def read(filename):
 
 setup(
     name='sphinx-dust',
-    version='1.2.3',
+    version='1.2.4.dev0',
     author="Polyconseil",
     author_email="opensource+sphinx-dust@polyconseil.fr",
     description="Sphinx extension to produce warnings when a doc needs proofreading.",
