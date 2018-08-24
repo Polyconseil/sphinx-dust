@@ -39,6 +39,7 @@ class ReviewerMetaDirective(rst.Directive):
     option_spec = {
         'written-on': yearmonthday,
         'proofread-on': yearmonthday,
+        'dust-days-limit': int,
     }
 
     def run(self):
@@ -46,6 +47,7 @@ class ReviewerMetaDirective(rst.Directive):
 
         written_on = self.options['written-on']
         proofread_on = self.options['proofread-on']
+        dust_days_limit = self.options.get('dust_days_limit', env.config.dust_days_limit)
         delta = datetime.datetime.now() - proofread_on
 
         node_list = []
@@ -56,7 +58,7 @@ class ReviewerMetaDirective(rst.Directive):
                 _("This document should not have a proofread-on date in the future"),
             )
             node_list.append(warning)
-        elif delta.days > env.config.dust_days_limit and env.config.dust_emit_warnings:
+        elif delta.days > dust_days_limit and env.config.dust_emit_warnings:
             # Don't raise using self.warning because we want to
             # insert the admonition too
             warning = self.state.reporter.warning(
