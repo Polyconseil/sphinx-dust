@@ -35,6 +35,7 @@ It takes two arguments:
 
 - ``written-on``, the date the document was redacted; and,
 - ``proofread-on``, the date the document was proofread.
+- ``dust-days-limit``, overrides the global ``dust_days_limit`` to customize the day the document can live without review.
 
 Both dates must respect the ``yyyy-mm-dd`` format.
 
@@ -50,6 +51,7 @@ Here it is in context:
     .. reviewer-meta::
         :written-on: 1974-05-19
         :proofread-on: 1974-06-20
+        :dust-days-limit: 25
 
 
 This directive will be replaced by a note reading:
