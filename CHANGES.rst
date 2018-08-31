@@ -1,7 +1,7 @@
 Changelog for dust
 ==================
 
-1.2.4 (unreleased)
+1.2.4 (2018-08-31)
 ------------------
 
 - Add a per document ``dust-days-limit`` configuration.
