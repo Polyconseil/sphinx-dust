@@ -1,6 +1,5 @@
-import pkg_resources
+from importlib import metadata
 
 from .directive import setup  # pylint: disable=unused-import
 
-
-__version__ = pkg_resources.get_distribution('sphinx-dust').version
+__version__ = metadata.version('sphinx-dust')

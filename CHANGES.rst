@@ -4,7 +4,7 @@ Changelog for dust
 1.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Replace pkg_resources with importlib.metadata.
 
 
 1.2.4 (2018-08-31)
