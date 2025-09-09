@@ -1,6 +1,12 @@
 Changelog for dust
 ==================
 
+1.2.6 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 1.2.5 (2025-09-09)
 ------------------
 
